@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5884fa76-7630-4b0f-950a-d86232cfbe81" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/SucursalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Sucursal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repository/SucursalRepository.java" afterDir="false" />
-    </list>
+    <list default="true" id="5884fa76-7630-4b0f-950a-d86232cfbe81" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
