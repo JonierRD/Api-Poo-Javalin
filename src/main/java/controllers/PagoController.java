@@ -4,26 +4,29 @@ import io.javalin.Javalin;
 import io.javalin.http.Context;
 import models.Pago;
 import repository.PagoRepository;
-import java.util.Map;
+import java.util.List;
 
 public class PagoController {
-    public static void init(Javalin app) {
-        // Registrar pago
-        app.post("/pagos", ctx -> {
-            Map<String, Object> body = ctx.bodyAsClass(Map.class);
-            Pago pago = new Pago(
-                    body.get("pedidoId").toString(),
-                    Double.parseDouble(body.get("monto").toString()),
-                    body.get("metodo").toString()
-            );
-            PagoRepository.save(pago);
-            ctx.status(201).json(pago);
-        });
+    private final Javalin app;
 
-        // Consultar pago por pedido
-        app.get("/pedidos/{pedidoId}/pago", ctx -> {
-            Pago pago = PagoRepository.findByPedidoId(ctx.pathParam("pedidoId"));
-            ctx.json(pago != null ? pago : ctx.status(404));
-        });
+    public PagoController(Javalin app) {
+        this.app = app;
+        registerRoutes();
+    }
+
+    private void registerRoutes() {
+        app.get("/api/pagos", this::getAllPagos);
+        app.post("/api/pagos", this::createPago);
+    }
+
+    private void getAllPagos(Context ctx) {
+        List<Pago> pagos = PagoRepository.findAll();
+        ctx.json(pagos);
+    }
+
+    private void createPago(Context ctx) {
+        Pago pago = ctx.bodyAsClass(Pago.class);
+        PagoRepository.save(pago);
+        ctx.status(201).json(pago);
     }
 }

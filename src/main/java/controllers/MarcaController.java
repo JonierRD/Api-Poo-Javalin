@@ -4,24 +4,29 @@ import io.javalin.Javalin;
 import io.javalin.http.Context;
 import models.Marca;
 import repository.MarcaRepository;
-import java.util.Map;
+import java.util.List;
 
 public class MarcaController {
-    public static void init(Javalin app) {
-        app.post("/marcas", ctx -> {
-            Map<String, String> body = ctx.bodyAsClass(Map.class);
-            Marca marca = new Marca(
-                    body.get("nombre"),
-                    body.get("paisOrigen"),
-                    body.get("sitioWeb")
-            );
-            MarcaRepository.save(marca);
-            ctx.status(201).json(marca);
-        });
+    private final Javalin app;
 
-        app.get("/marcas/{nombre}", ctx -> {
-            Marca marca = MarcaRepository.findByNombre(ctx.pathParam("nombre"));
-            ctx.json(marca != null ? marca : ctx.status(404));
-        });
+    public MarcaController(Javalin app) {
+        this.app = app;
+        registerRoutes();
+    }
+
+    private void registerRoutes() {
+        app.get("/api/marcas", this::getAllMarcas);
+        app.post("/api/marcas", this::createMarca);
+    }
+
+    private void getAllMarcas(Context ctx) {
+        List<Marca> marcas = MarcaRepository.findAll();
+        ctx.json(marcas);
+    }
+
+    private void createMarca(Context ctx) {
+        Marca marca = ctx.bodyAsClass(Marca.class);
+        MarcaRepository.save(marca);
+        ctx.status(201).json(marca);
     }
 }

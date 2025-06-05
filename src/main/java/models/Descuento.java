@@ -1,7 +1,6 @@
 package models;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 public class Descuento {
     private String id;
@@ -11,26 +10,28 @@ public class Descuento {
     private LocalDate fechaFin;
     private boolean activo;
 
-    public Descuento(String codigo, double porcentaje, LocalDate fechaFin) {
-        this.id = UUID.randomUUID().toString();
+    public Descuento() {}
+
+    public Descuento(String id, String codigo, double porcentaje, LocalDate fechaInicio, LocalDate fechaFin, boolean activo) {
+        this.id = id;
         this.codigo = codigo;
         this.porcentaje = porcentaje;
-        this.fechaInicio = LocalDate.now();
+        this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.activo = true;
+        this.activo = activo;
     }
 
-    // Añade este getter faltante
-    public String getId() {
-        return id;
-    }
-
-    // Resto de getters...
+    // Getters y Setters
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
     public String getCodigo() { return codigo; }
+    public void setCodigo(String codigo) { this.codigo = codigo; }
     public double getPorcentaje() { return porcentaje; }
-    public boolean estaActivo() {
-        return activo && LocalDate.now().isBefore(fechaFin);
-    }
-
-    public void desactivar() { this.activo = false; }
+    public void setPorcentaje(double porcentaje) { this.porcentaje = porcentaje; }
+    public LocalDate getFechaInicio() { return fechaInicio; }
+    public void setFechaInicio(LocalDate fechaInicio) { this.fechaInicio = fechaInicio; }
+    public LocalDate getFechaFin() { return fechaFin; }
+    public void setFechaFin(LocalDate fechaFin) { this.fechaFin = fechaFin; }
+    public boolean isActivo() { return activo; }
+    public void setActivo(boolean activo) { this.activo = activo; }
 }

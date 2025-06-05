@@ -1,60 +1,29 @@
 package models;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class Carrito {
     private String id;
     private String usuarioId;
-    private List<ItemCarrito> items;
+    private List<String> productosIds;
     private double total;
 
-    public Carrito(String usuarioId) {
-        this.id = UUID.randomUUID().toString();
+    public Carrito() {}
+
+    public Carrito(String id, String usuarioId, List<String> productosIds, double total) {
+        this.id = id;
         this.usuarioId = usuarioId;
-        this.items = new ArrayList<>();
-        this.total = 0.0;
+        this.productosIds = productosIds;
+        this.total = total;
     }
 
-    // Clase interna para items del carrito
-    public static class ItemCarrito {
-        private String productoId;
-        private int cantidad;
-        private double precioUnitario;
-
-        public ItemCarrito(String productoId, int cantidad, double precioUnitario) {
-            this.productoId = productoId;
-            this.cantidad = cantidad;
-            this.precioUnitario = precioUnitario;
-        }
-
-        // Getters
-        public String getProductoId() { return productoId; }
-        public int getCantidad() { return cantidad; }
-        public double getPrecioUnitario() { return precioUnitario; }
-    }
-
-    // Métodos principales
-    public void agregarItem(String productoId, int cantidad, double precio) {
-        items.add(new ItemCarrito(productoId, cantidad, precio));
-        calcularTotal();
-    }
-
-    public void eliminarItem(String productoId) {
-        items.removeIf(item -> item.getProductoId().equals(productoId));
-        calcularTotal();
-    }
-
-    private void calcularTotal() {
-        this.total = items.stream()
-                .mapToDouble(item -> item.getPrecioUnitario() * item.getCantidad())
-                .sum();
-    }
-
-    // Getters
+    // Getters y Setters
     public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
     public String getUsuarioId() { return usuarioId; }
-    public List<ItemCarrito> getItems() { return items; }
+    public void setUsuarioId(String usuarioId) { this.usuarioId = usuarioId; }
+    public List<String> getProductosIds() { return productosIds; }
+    public void setProductosIds(List<String> productosIds) { this.productosIds = productosIds; }
     public double getTotal() { return total; }
+    public void setTotal(double total) { this.total = total; }
 }

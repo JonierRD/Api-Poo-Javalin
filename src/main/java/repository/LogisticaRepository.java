@@ -5,15 +5,16 @@ import java.util.*;
 
 public class LogisticaRepository {
     private static final Map<String, Logistica> logisticas = new HashMap<>();
-    private static final Map<String, String> logisticasPorPedido = new HashMap<>();
+
+    public static List<Logistica> findAll() {
+        return new ArrayList<>(logisticas.values());
+    }
+
+    public static Logistica findById(String id) {
+        return logisticas.get(id);
+    }
 
     public static void save(Logistica logistica) {
         logisticas.put(logistica.getId(), logistica);
-        logisticasPorPedido.put(logistica.getPedidoId(), logistica.getId());
-    }
-
-    public static Logistica findByPedidoId(String pedidoId) {
-        String logisticaId = logisticasPorPedido.get(pedidoId);
-        return logisticaId != null ? logisticas.get(logisticaId) : null;
     }
 }

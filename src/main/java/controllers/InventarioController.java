@@ -4,30 +4,29 @@ import io.javalin.Javalin;
 import io.javalin.http.Context;
 import models.Inventario;
 import repository.InventarioRepository;
-import java.util.Map;
+import java.util.List;
 
 public class InventarioController {
-    public static void init(Javalin app) {
-        // Registrar item en inventario
-        app.post("/inventario", ctx -> {
-            Map<String, Object> body = ctx.bodyAsClass(Map.class);
-            Inventario inventario = new Inventario(
-                    body.get("productoId").toString(),
-                    body.get("sucursalId").toString(),
-                    Integer.parseInt(body.get("cantidad").toString()),
-                    Integer.parseInt(body.get("stockMinimo").toString())
-            );
-            InventarioRepository.save(inventario);
-            ctx.status(201).json(inventario);
-        });
+    private final Javalin app;
 
-        // Consultar stock por producto y sucursal
-        app.get("/inventario/{productoId}/{sucursalId}", ctx -> {
-            Inventario inventario = InventarioRepository.findByProductoYSucursal(
-                    ctx.pathParam("productoId"),
-                    ctx.pathParam("sucursalId")
-            );
-            ctx.json(inventario != null ? inventario : ctx.status(404));
-        });
+    public InventarioController(Javalin app) {
+        this.app = app;
+        registerRoutes();
+    }
+
+    private void registerRoutes() {
+        app.get("/api/inventario", this::getAllInventario);
+        app.post("/api/inventario", this::createInventario);
+    }
+
+    private void getAllInventario(Context ctx) {
+        List<Inventario> inventario = InventarioRepository.findAll();
+        ctx.json(inventario);
+    }
+
+    private void createInventario(Context ctx) {
+        Inventario item = ctx.bodyAsClass(Inventario.class);
+        InventarioRepository.save(item);
+        ctx.status(201).json(item);
     }
 }

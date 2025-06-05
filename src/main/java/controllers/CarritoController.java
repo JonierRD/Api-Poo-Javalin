@@ -4,46 +4,29 @@ import io.javalin.Javalin;
 import io.javalin.http.Context;
 import models.Carrito;
 import repository.CarritoRepository;
-import java.util.Map;
+import java.util.List;
 
 public class CarritoController {
-    public static void init(Javalin app) {
-        // Crear carrito
-        app.post("/carritos", ctx -> {
-            String usuarioId = ctx.bodyAsClass(Map.class).get("usuarioId").toString();
-            Carrito carrito = new Carrito(usuarioId);
-            CarritoRepository.save(carrito);
-            ctx.status(201).json(carrito);
-        });
+    private final Javalin app;
 
-        // Agregar item al carrito
-        app.post("/carritos/{usuarioId}/items", ctx -> {
-            String usuarioId = ctx.pathParam("usuarioId");
-            Map<String, Object> body = ctx.bodyAsClass(Map.class);
+    public CarritoController(Javalin app) {
+        this.app = app;
+        registerRoutes();
+    }
 
-            Carrito carrito = CarritoRepository.findByUsuarioId(usuarioId);
-            if (carrito == null) {
-                ctx.status(404).result("Carrito no encontrado");
-                return;
-            }
+    private void registerRoutes() {
+        app.get("/api/carritos", this::getAllCarritos);
+        app.post("/api/carritos", this::createCarrito);
+    }
 
-            String productoId = body.get("productoId").toString();
-            int cantidad = Integer.parseInt(body.get("cantidad").toString());
-            double precio = Double.parseDouble(body.get("precioUnitario").toString());
+    private void getAllCarritos(Context ctx) {
+        List<Carrito> carritos = CarritoRepository.findAll();
+        ctx.json(carritos);
+    }
 
-            carrito.agregarItem(productoId, cantidad, precio);
-            CarritoRepository.save(carrito);
-            ctx.json(carrito);
-        });
-
-        // Obtener carrito por usuario
-        app.get("/carritos/{usuarioId}", ctx -> {
-            Carrito carrito = CarritoRepository.findByUsuarioId(ctx.pathParam("usuarioId"));
-            if (carrito != null) {
-                ctx.json(carrito);
-            } else {
-                ctx.status(404);
-            }
-        });
+    private void createCarrito(Context ctx) {
+        Carrito carrito = ctx.bodyAsClass(Carrito.class);
+        CarritoRepository.save(carrito);
+        ctx.status(201).json(carrito);
     }
 }

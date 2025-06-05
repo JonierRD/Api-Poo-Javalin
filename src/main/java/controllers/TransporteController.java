@@ -4,25 +4,29 @@ import io.javalin.Javalin;
 import io.javalin.http.Context;
 import models.Transporte;
 import repository.TransporteRepository;
-import java.util.Map;
+import java.util.List;
 
 public class TransporteController {
-    public static void init(Javalin app) {
-        // Registrar transporte
-        app.post("/transportes", ctx -> {
-            Map<String, Object> body = ctx.bodyAsClass(Map.class);
-            Transporte transporte = new Transporte(
-                    body.get("placa").toString(),
-                    body.get("tipo").toString(),
-                    Double.parseDouble(body.get("capacidadKg").toString())
-            );
-            TransporteRepository.save(transporte);
-            ctx.status(201).json(transporte);
-        });
+    private final Javalin app;
 
-        // Listar transportes disponibles
-        app.get("/transportes/disponibles", ctx -> {
-            ctx.json(TransporteRepository.findDisponibles());
-        });
+    public TransporteController(Javalin app) {
+        this.app = app;
+        registerRoutes();
+    }
+
+    private void registerRoutes() {
+        app.get("/api/transportes", this::getAllTransportes);
+        app.post("/api/transportes", this::createTransporte);
+    }
+
+    private void getAllTransportes(Context ctx) {
+        List<Transporte> transportes = TransporteRepository.findAll();
+        ctx.json(transportes);
+    }
+
+    private void createTransporte(Context ctx) {
+        Transporte transporte = ctx.bodyAsClass(Transporte.class);
+        TransporteRepository.save(transporte);
+        ctx.status(201).json(transporte);
     }
 }

@@ -1,34 +1,34 @@
 package models;
 
+import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 
 public class Pedido {
     private String id;
-    private String usuarioId;
-    private List<String> productosIds;
-    private double total;
-    private String estado; // "PENDIENTE", "ENVIADO", "ENTREGADO"
+    private String clienteId;
+    private LocalDate fecha;
+    private List<String> productos;
+    private String estado;
 
-    // Constructor simplificado
-    public Pedido(String usuarioId, List<String> productosIds) {
-        this.id = UUID.randomUUID().toString();
-        this.usuarioId = usuarioId;
-        this.productosIds = productosIds;
-        this.estado = "PENDIENTE";
-        this.total = calcularTotalBasico(); // Método interno
+    public Pedido() {}
+
+    public Pedido(String id, String clienteId, LocalDate fecha, List<String> productos, String estado) {
+        this.id = id;
+        this.clienteId = clienteId;
+        this.fecha = fecha;
+        this.productos = productos;
+        this.estado = estado;
     }
 
-    private double calcularTotalBasico() {
-        // Ejemplo básico: $10 por producto (reemplázalo con tu lógica)
-        return productosIds.size() * 10.0;
-    }
-
-    // Getters/Setters (mismos que antes)
+    // Getters y Setters
     public String getId() { return id; }
-    public String getUsuarioId() { return usuarioId; }
-    public List<String> getProductosIds() { return productosIds; }
-    public double getTotal() { return total; }
+    public void setId(String id) { this.id = id; }
+    public String getClienteId() { return clienteId; }
+    public void setClienteId(String clienteId) { this.clienteId = clienteId; }
+    public LocalDate getFecha() { return fecha; }
+    public void setFecha(LocalDate fecha) { this.fecha = fecha; }
+    public List<String> getProductos() { return productos; }
+    public void setProductos(List<String> productos) { this.productos = productos; }
     public String getEstado() { return estado; }
     public void setEstado(String estado) { this.estado = estado; }
 }

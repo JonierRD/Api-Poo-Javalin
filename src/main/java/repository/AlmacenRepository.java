@@ -1,25 +1,23 @@
 package repository;
 
 import models.Almacen;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AlmacenRepository {
     private static final Map<String, Almacen> almacenes = new HashMap<>();
-    private static final Map<String, String> almacenesPorNombre = new HashMap<>();
+
+    public static List<Almacen> findAll() {
+        return new ArrayList<>(almacenes.values());
+    }
+
+    public static Almacen findById(String id) {
+        return almacenes.get(id);
+    }
 
     public static void save(Almacen almacen) {
         almacenes.put(almacen.getId(), almacen);
-        almacenesPorNombre.put(almacen.getNombre(), almacen.getId());
-    }
-
-    public static Almacen findByNombre(String nombre) {
-        String id = almacenesPorNombre.get(nombre);
-        return id != null ? almacenes.get(id) : null;
-    }
-
-    public static List<Almacen> findByTipo(String tipo) {
-        return almacenes.values().stream()
-                .filter(a -> a.getTipo().equals(tipo))
-                .toList();
     }
 }

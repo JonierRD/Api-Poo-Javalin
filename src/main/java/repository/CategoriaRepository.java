@@ -5,15 +5,16 @@ import java.util.*;
 
 public class CategoriaRepository {
     private static final Map<String, Categoria> categorias = new HashMap<>();
-    private static final Map<String, String> categoriasPorNombre = new HashMap<>();
+
+    public static List<Categoria> findAll() {
+        return new ArrayList<>(categorias.values());
+    }
+
+    public static Categoria findById(String id) {
+        return categorias.get(id);
+    }
 
     public static void save(Categoria categoria) {
         categorias.put(categoria.getId(), categoria);
-        categoriasPorNombre.put(categoria.getNombre(), categoria.getId());
-    }
-
-    public static Categoria findByNombre(String nombre) {
-        String id = categoriasPorNombre.get(nombre);
-        return id != null ? categorias.get(id) : null;
     }
 }

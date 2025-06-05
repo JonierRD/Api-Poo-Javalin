@@ -3,29 +3,25 @@ package models;
 public class Inventario {
     private String id;
     private String productoId;
-    private String sucursalId;
     private int cantidad;
-    private int stockMinimo;
+    private String ubicacion;
 
-    public Inventario(String productoId, String sucursalId, int cantidad, int stockMinimo) {
+    public Inventario() {}
+
+    public Inventario(String id, String productoId, int cantidad, String ubicacion) {
+        this.id = id;
         this.productoId = productoId;
-        this.sucursalId = sucursalId;
         this.cantidad = cantidad;
-        this.stockMinimo = stockMinimo;
+        this.ubicacion = ubicacion;
     }
 
-    // Getters
+    // Getters y Setters
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
     public String getProductoId() { return productoId; }
-    public String getSucursalId() { return sucursalId; }
+    public void setProductoId(String productoId) { this.productoId = productoId; }
     public int getCantidad() { return cantidad; }
-    public int getStockMinimo() { return stockMinimo; }
-
-    // Métodos de gestión
-    public void agregarStock(int cantidad) {
-        this.cantidad += cantidad;
-    }
-
-    public boolean necesitaReabastecimiento() {
-        return cantidad < stockMinimo;
-    }
+    public void setCantidad(int cantidad) { this.cantidad = cantidad; }
+    public String getUbicacion() { return ubicacion; }
+    public void setUbicacion(String ubicacion) { this.ubicacion = ubicacion; }
 }

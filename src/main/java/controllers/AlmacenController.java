@@ -4,26 +4,36 @@ import io.javalin.Javalin;
 import io.javalin.http.Context;
 import models.Almacen;
 import repository.AlmacenRepository;
-import java.util.Map;
+import java.util.List;
 
 public class AlmacenController {
-    public static void init(Javalin app) {
-        // Registrar almacén
-        app.post("/almacenes", ctx -> {
-            Map<String, Object> body = ctx.bodyAsClass(Map.class);
-            Almacen almacen = new Almacen(
-                    body.get("nombre").toString(),
-                    body.get("ubicacion").toString(),
-                    Double.parseDouble(body.get("capacidadM2").toString()),
-                    body.get("tipo").toString()
-            );
-            AlmacenRepository.save(almacen);
-            ctx.status(201).json(almacen);
-        });
+    private final Javalin app;
 
-        // Buscar por tipo
-        app.get("/almacenes/tipo/{tipo}", ctx -> {
-            ctx.json(AlmacenRepository.findByTipo(ctx.pathParam("tipo")));
-        });
+    public AlmacenController(Javalin app) {
+        this.app = app;
+        registerRoutes();
+    }
+
+    private void registerRoutes() {
+        app.get("/api/almacenes", this::getAllAlmacenes);
+        app.post("/api/almacenes", this::createAlmacen);
+        app.get("/api/almacenes/{id}", this::getAlmacenById);
+    }
+
+    private void getAllAlmacenes(Context ctx) {
+        List<Almacen> almacenes = AlmacenRepository.findAll();
+        ctx.json(almacenes);
+    }
+
+    private void createAlmacen(Context ctx) {
+        Almacen almacen = ctx.bodyAsClass(Almacen.class);
+        AlmacenRepository.save(almacen);
+        ctx.status(201).json(almacen);
+    }
+
+    private void getAlmacenById(Context ctx) {
+        String id = ctx.pathParam("id");
+        Almacen almacen = AlmacenRepository.findById(id);
+        ctx.json(almacen);
     }
 }

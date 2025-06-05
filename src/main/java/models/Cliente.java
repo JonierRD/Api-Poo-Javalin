@@ -1,32 +1,27 @@
 package models;
 
-import java.util.UUID;
-
 public class Cliente {
     private String id;
     private String nombre;
     private String email;
-    private String telefono;
-    private String tipo; // "NATURAL", "EMPRESA"
+    private String direccion;
 
-    public Cliente(String nombre, String email, String telefono, String tipo) {
-        this.id = "CLI-" + UUID.randomUUID().toString();
+    public Cliente() {}
+
+    public Cliente(String id, String nombre, String email, String direccion) {
+        this.id = id;
         this.nombre = nombre;
         this.email = email;
-        this.telefono = telefono;
-        this.tipo = tipo;
+        this.direccion = direccion;
     }
 
-    // Getters
+    // Getters y Setters
     public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
     public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
     public String getEmail() { return email; }
-    public String getTelefono() { return telefono; }
-    public String getTipo() { return tipo; }
-
-    // Métodos de negocio
-    public void actualizarContacto(String nuevoTelefono, String nuevoEmail) {
-        this.telefono = nuevoTelefono;
-        this.email = nuevoEmail;
-    }
+    public void setEmail(String email) { this.email = email; }
+    public String getDireccion() { return direccion; }
+    public void setDireccion(String direccion) { this.direccion = direccion; }
 }

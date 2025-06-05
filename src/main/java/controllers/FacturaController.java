@@ -5,26 +5,28 @@ import io.javalin.http.Context;
 import models.Factura;
 import repository.FacturaRepository;
 import java.util.List;
-import java.util.Map;
 
 public class FacturaController {
-    public static void init(Javalin app) {
-        // Generar factura
-        app.post("/facturas", ctx -> {
-            Map<String, Object> body = ctx.bodyAsClass(Map.class);
-            Factura factura = new Factura(
-                    body.get("pedidoId").toString(),
-                    body.get("clienteId").toString(),
-                    Double.parseDouble(body.get("subtotal").toString()),
-                    (List<String>) body.get("items")
-            );
-            FacturaRepository.save(factura);
-            ctx.status(201).json(factura);
-        });
+    private final Javalin app;
 
-        // Obtener facturas por cliente
-        app.get("/clientes/{clienteId}/facturas", ctx -> {
-            ctx.json(FacturaRepository.findByClienteId(ctx.pathParam("clienteId")));
-        });
+    public FacturaController(Javalin app) {
+        this.app = app;
+        registerRoutes();
+    }
+
+    private void registerRoutes() {
+        app.get("/api/facturas", this::getAllFacturas);
+        app.post("/api/facturas", this::createFactura);
+    }
+
+    private void getAllFacturas(Context ctx) {
+        List<Factura> facturas = FacturaRepository.findAll();
+        ctx.json(facturas);
+    }
+
+    private void createFactura(Context ctx) {
+        Factura factura = ctx.bodyAsClass(Factura.class);
+        FacturaRepository.save(factura);
+        ctx.status(201).json(factura);
     }
 }

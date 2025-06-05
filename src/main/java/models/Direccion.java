@@ -2,33 +2,30 @@ package models;
 
 public class Direccion {
     private String id;
-    private String usuarioId;
     private String calle;
     private String ciudad;
     private String codigoPostal;
-    private boolean esPrincipal;
+    private String pais;
 
-    public Direccion(String usuarioId, String calle, String ciudad, String codigoPostal) {
-        this.usuarioId = usuarioId;
+    public Direccion() {}
+
+    public Direccion(String id, String calle, String ciudad, String codigoPostal, String pais) {
+        this.id = id;
         this.calle = calle;
         this.ciudad = ciudad;
         this.codigoPostal = codigoPostal;
-        this.esPrincipal = false;
+        this.pais = pais;
     }
 
-    // Getters
+    // Getters y Setters
     public String getId() { return id; }
-    public String getUsuarioId() { return usuarioId; }
+    public void setId(String id) { this.id = id; }
     public String getCalle() { return calle; }
+    public void setCalle(String calle) { this.calle = calle; }
     public String getCiudad() { return ciudad; }
+    public void setCiudad(String ciudad) { this.ciudad = ciudad; }
     public String getCodigoPostal() { return codigoPostal; }
-    public boolean isEsPrincipal() { return esPrincipal; }
-
-    // Setters
-    public void marcarComoPrincipal() { this.esPrincipal = true; }
-    public void actualizarDatos(String calle, String ciudad, String codigoPostal) {
-        this.calle = calle;
-        this.ciudad = ciudad;
-        this.codigoPostal = codigoPostal;
-    }
+    public void setCodigoPostal(String codigoPostal) { this.codigoPostal = codigoPostal; }
+    public String getPais() { return pais; }
+    public void setPais(String pais) { this.pais = pais; }
 }

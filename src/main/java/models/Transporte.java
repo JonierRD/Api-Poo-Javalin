@@ -2,26 +2,26 @@ package models;
 
 public class Transporte {
     private String id;
+    private String tipo;
     private String placa;
-    private String tipo; // "CAMION", "FURGON", "MOTOCICLETA"
     private double capacidadKg;
-    private boolean disponible;
 
-    public Transporte(String placa, String tipo, double capacidadKg) {
-        this.placa = placa;
+    public Transporte() {}
+
+    public Transporte(String id, String tipo, String placa, double capacidadKg) {
+        this.id = id;
         this.tipo = tipo;
+        this.placa = placa;
         this.capacidadKg = capacidadKg;
-        this.disponible = true;
     }
 
-    // Getters
+    // Getters y Setters
     public String getId() { return id; }
-    public String getPlaca() { return placa; }
+    public void setId(String id) { this.id = id; }
     public String getTipo() { return tipo; }
+    public void setTipo(String tipo) { this.tipo = tipo; }
+    public String getPlaca() { return placa; }
+    public void setPlaca(String placa) { this.placa = placa; }
     public double getCapacidadKg() { return capacidadKg; }
-    public boolean isDisponible() { return disponible; }
-
-    // Métodos de estado
-    public void reservar() { this.disponible = false; }
-    public void liberar() { this.disponible = true; }
+    public void setCapacidadKg(double capacidadKg) { this.capacidadKg = capacidadKg; }
 }

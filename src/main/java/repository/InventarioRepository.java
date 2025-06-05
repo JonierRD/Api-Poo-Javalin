@@ -3,23 +3,19 @@ package repository;
 import models.Inventario;
 import java.util.*;
 
-public class InventarioRepository {
-    private static final Map<String, Inventario> inventarios = new HashMap<>();
-    private static final Map<String, List<Inventario>> inventariosPorProducto = new HashMap<>();
+public class InventarioRepository {  // Nombre corregido
+    private static final Map<String, Inventario> items = new HashMap<>();
 
-    public static void save(Inventario inventario) {
-        inventarios.put(inventario.getProductoId() + "-" + inventario.getSucursalId(), inventario);
-
-        inventariosPorProducto
-                .computeIfAbsent(inventario.getProductoId(), k -> new ArrayList<>())
-                .add(inventario);
+    public static List<Inventario> findAll() {
+        return new ArrayList<>(items.values());
     }
 
-    public static Inventario findByProductoYSucursal(String productoId, String sucursalId) {
-        return inventarios.get(productoId + "-" + sucursalId);
+    public static Inventario findById(String id) {
+        return items.get(id);
     }
 
-    public static List<Inventario> findByProducto(String productoId) {
-        return inventariosPorProducto.getOrDefault(productoId, Collections.emptyList());
+    public static void save(Inventario item) {
+        // Asegúrate que la clase Inventario tenga getId()
+        items.put(item.getId(), item);
     }
 }

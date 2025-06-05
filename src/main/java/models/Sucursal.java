@@ -5,24 +5,23 @@ public class Sucursal {
     private String nombre;
     private String direccion;
     private String telefono;
-    private String horario;
 
-    public Sucursal(String nombre, String direccion, String telefono, String horario) {
+    public Sucursal() {}
+
+    public Sucursal(String id, String nombre, String direccion, String telefono) {
+        this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.horario = horario;
     }
 
-    // Getters
+    // Getters y Setters
     public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
     public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
     public String getDireccion() { return direccion; }
+    public void setDireccion(String direccion) { this.direccion = direccion; }
     public String getTelefono() { return telefono; }
-    public String getHorario() { return horario; }
-
-    // Setters
-    public void actualizarHorario(String nuevoHorario) {
-        this.horario = nuevoHorario;
-    }
+    public void setTelefono(String telefono) { this.telefono = telefono; }
 }

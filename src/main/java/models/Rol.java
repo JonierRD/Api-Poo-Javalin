@@ -1,28 +1,25 @@
 package models;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Rol {
     private String id;
     private String nombre;
-    private List<String> permisos; // Ej: ["CREAR_PRODUCTO", "EDITAR_USUARIO"]
+    private List<String> permisos;
 
-    public Rol(String nombre, String... permisos) {
+    public Rol() {}
+
+    public Rol(String id, String nombre, List<String> permisos) {
+        this.id = id;
         this.nombre = nombre;
-        this.permisos = Arrays.asList(permisos);
+        this.permisos = permisos;
     }
 
-    // Getters
+    // Getters y Setters
     public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
     public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
     public List<String> getPermisos() { return permisos; }
-
-    // Gestión de permisos
-    public void agregarPermiso(String permiso) {
-        if (!permisos.contains(permiso)) permisos.add(permiso);
-    }
-    public boolean tienePermiso(String permiso) {
-        return permisos.contains(permiso);
-    }
+    public void setPermisos(List<String> permisos) { this.permisos = permisos; }
 }

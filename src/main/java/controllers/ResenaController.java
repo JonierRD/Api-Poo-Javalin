@@ -4,32 +4,29 @@ import io.javalin.Javalin;
 import io.javalin.http.Context;
 import models.Resena;
 import repository.ResenaRepository;
-import java.util.Map;
+import java.util.List;
 
 public class ResenaController {
-    public static void init(Javalin app) {
-        // Crear reseña
-        app.post("/productos/{productoId}/resenas", ctx -> {
-            Map<String, Object> body = ctx.bodyAsClass(Map.class);
-            Resena resena = new Resena(
-                    ctx.pathParam("productoId"),
-                    body.get("usuarioId").toString(),
-                    Integer.parseInt(body.get("calificacion").toString()),
-                    body.get("comentario").toString()
-            );
-            ResenaRepository.save(resena);
-            ctx.status(201).json(resena);
-        });
+    private final Javalin app;
 
-        // Obtener reseñas de producto
-        app.get("/productos/{productoId}/resenas", ctx -> {
-            ctx.json(ResenaRepository.findByProductoId(ctx.pathParam("productoId")));
-        });
+    public ResenaController(Javalin app) {
+        this.app = app;
+        registerRoutes();
+    }
 
-        // Obtener promedio de calificaciones
-        app.get("/productos/{productoId}/calificacion-promedio", ctx -> {
-            double promedio = ResenaRepository.getPromedioCalificaciones(ctx.pathParam("productoId"));
-            ctx.json(Map.of("promedio", promedio));
-        });
+    private void registerRoutes() {
+        app.get("/api/resenas", this::getAllResenas);
+        app.post("/api/resenas", this::createResena);
+    }
+
+    private void getAllResenas(Context ctx) {
+        List<Resena> resenas = ResenaRepository.findAll();
+        ctx.json(resenas);
+    }
+
+    private void createResena(Context ctx) {
+        Resena resena = ctx.bodyAsClass(Resena.class);
+        ResenaRepository.save(resena);
+        ctx.status(201).json(resena);
     }
 }

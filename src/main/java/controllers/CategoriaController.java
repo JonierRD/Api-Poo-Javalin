@@ -4,25 +4,29 @@ import io.javalin.Javalin;
 import io.javalin.http.Context;
 import models.Categoria;
 import repository.CategoriaRepository;
-import java.util.Map;
+import java.util.List;
 
 public class CategoriaController {
-    public static void init(Javalin app) {
-        // Crear categoría
-        app.post("/categorias", ctx -> {
-            Map<String, String> body = ctx.bodyAsClass(Map.class);
-            Categoria categoria = new Categoria(
-                    body.get("nombre"),
-                    body.get("descripcion")
-            );
-            CategoriaRepository.save(categoria);
-            ctx.status(201).json(categoria);
-        });
+    private final Javalin app;
 
-        // Buscar por nombre
-        app.get("/categorias/{nombre}", ctx -> {
-            Categoria categoria = CategoriaRepository.findByNombre(ctx.pathParam("nombre"));
-            ctx.json(categoria != null ? categoria : ctx.status(404));
-        });
+    public CategoriaController(Javalin app) {
+        this.app = app;
+        registerRoutes();
+    }
+
+    private void registerRoutes() {
+        app.get("/api/categorias", this::getAllCategorias);
+        app.post("/api/categorias", this::createCategoria);
+    }
+
+    private void getAllCategorias(Context ctx) {
+        List<Categoria> categorias = CategoriaRepository.findAll();
+        ctx.json(categorias);
+    }
+
+    private void createCategoria(Context ctx) {
+        Categoria categoria = ctx.bodyAsClass(Categoria.class);
+        CategoriaRepository.save(categoria);
+        ctx.status(201).json(categoria);
     }
 }

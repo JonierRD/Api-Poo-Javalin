@@ -5,9 +5,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="246c5e0a-8d4e-4b21-8b41-835128e41806" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/DescuentoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Descuento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repository/DescuentoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AlmacenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/AlmacenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/CarritoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/CarritoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/CategoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/CategoriaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/DescuentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/DescuentoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/DireccionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/DireccionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/EmpleadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/EmpleadoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/FacturaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/FacturaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/InventarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/InventarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/LogisticaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/LogisticaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/MarcaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/MarcaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/PagoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/PagoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/PedidoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ProductoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/ProductoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ProveedorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/ProveedorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ResenaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/ResenaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/RolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/RolController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/SucursalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/SucursalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/TransporteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/TransporteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Almacen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Almacen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Carrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Carrito.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Categoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Descuento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Descuento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Direccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Direccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Empleado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Factura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Factura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Inventario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Inventario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Logistica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Logistica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Marca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Marca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Pago.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Pago.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Proveedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Proveedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Resena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Resena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Rol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Rol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Sucursal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Sucursal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Transporte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Transporte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/AlmacenRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/AlmacenRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/CarritoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/CarritoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/CategoriaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/CategoriaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ClienteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/DescuentoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/DescuentoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/DireccionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/DireccionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/EmpleadoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/EmpleadoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/FacturaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/FacturaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/InventarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/InventarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/LogisticaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/LogisticaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/MarcaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/MarcaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/PagoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/PagoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/PedidoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/PedidoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/ProductoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ProductoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/ProveedorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ProveedorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/ResenaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ResenaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/RolRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RolRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/SucursalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/SucursalRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/TransporteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/TransporteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/UsuarioRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +106,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.App.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/descuento-model",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Jonier/Desktop/Api-Poo-Javalin",
@@ -64,6 +125,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="controllers" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -82,6 +148,7 @@
       <updated>1748052276880</updated>
       <workItem from="1748052279157" duration="2946000" />
       <workItem from="1749011357540" duration="1276000" />
+      <workItem from="1749084744526" duration="4873000" />
     </task>
     <servers />
   </component>

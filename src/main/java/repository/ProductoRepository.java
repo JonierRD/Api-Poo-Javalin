@@ -1,27 +1,20 @@
 package repository;
 
 import models.Producto;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class ProductoRepository {
-    private static List<Producto> productos = new ArrayList<>();
-    private static int nextId = 1;
+    private static final Map<String, Producto> productos = new HashMap<>();
 
-    public static Producto addProducto(Producto producto) {
-        producto.setId("PROD-" + nextId++);
-        productos.add(producto);
-        return producto;
+    public static List<Producto> findAll() {
+        return new ArrayList<>(productos.values());
     }
 
-    public static List<Producto> getAllProductos() {
-        return new ArrayList<>(productos);
+    public static Producto findById(String id) {
+        return productos.get(id);
     }
 
-    public static Optional<Producto> getProductoById(String id) {
-        return productos.stream()
-                .filter(p -> p.getId().equals(id))
-                .findFirst();
+    public static void save(Producto producto) {
+        productos.put(producto.getId(), producto);
     }
 }

@@ -1,37 +1,27 @@
 package models;
 
-import java.time.LocalDate;
-
 public class Empleado {
     private String id;
     private String nombre;
-    private String cargo; // "GERENTE", "VENDEDOR", "REPARTIDOR"
-    private LocalDate fechaContratacion;
+    private String puesto;
     private double salario;
-    private String sucursalId; // Relación con Sucursal
 
-    public Empleado(String nombre, String cargo, double salario, String sucursalId) {
+    public Empleado() {}
+
+    public Empleado(String id, String nombre, String puesto, double salario) {
+        this.id = id;
         this.nombre = nombre;
-        this.cargo = cargo;
+        this.puesto = puesto;
         this.salario = salario;
-        this.sucursalId = sucursalId;
-        this.fechaContratacion = LocalDate.now();
     }
 
-    // Getters
+    // Getters y Setters
     public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
     public String getNombre() { return nombre; }
-    public String getCargo() { return cargo; }
-    public LocalDate getFechaContratacion() { return fechaContratacion; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+    public String getPuesto() { return puesto; }
+    public void setPuesto(String puesto) { this.puesto = puesto; }
     public double getSalario() { return salario; }
-    public String getSucursalId() { return sucursalId; }
-
-    // Métodos de negocio
-    public void aumentarSalario(double porcentaje) {
-        this.salario += this.salario * (porcentaje / 100);
-    }
-
-    public void transferirSucursal(String nuevaSucursalId) {
-        this.sucursalId = nuevaSucursalId;
-    }
+    public void setSalario(double salario) { this.salario = salario; }
 }
