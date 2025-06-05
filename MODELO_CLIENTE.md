@@ -1,1 +1,0 @@
-inicializando modelo cliente

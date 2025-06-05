@@ -1,1 +1,0 @@
-Inicializando modelo Categoría
